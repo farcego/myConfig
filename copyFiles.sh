@@ -14,7 +14,7 @@ fi
 # Your file copying commands go here
 # cp /source/path/* /destination/path/
 cp ~/HOME-INST/inst.sh ~/RESEARCH/FER/myConfig/myFiles/inst.sh
-
+cp ~/Renviron ~/RESEARCH/FER/myConfig/myFiles/Renviron
 
 # Update the last run time
 date +%s > "$LAST_RUN_FILE"
