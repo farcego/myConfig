@@ -1,4 +1,7 @@
-# EMACS stuff
+#################################################################################
+#                                                                               #
+#                                                                               #
+#                             EMACS STUFF                                       #
 *~
 *#
 .#*
@@ -7,60 +10,84 @@
 test/
 progress/
 TODO.org
-.png
-*.html
-*.tex
-*.pdf
+
+
+
+
+#################################################################################
+#                                                                               #
+#                                                                               #
+#                                DOCUMENTS/IMAGES                               # 
+#                                                                               #
+*.html                                                                          #
+*.tex                                                                           #
+*.pdf                                                                           #
+*.png                                                                           #
+*.jpg                                                                           #
+*.jpeg                                                                          #
+*.tiff                                                                          #
+#                                                                               #
+#                                                                               #
+#################################################################################
+
+
+
 # custom files
-test.R
+
 closed.R
 
-# R stuff
-
-# History files
-.Rhistory
-.Rapp.history
-
-# Session Data files
-.RData
-
-# User-specific files
-.Ruserdata
-
-# Example code in package build process
-*-Ex.R
-
-# Output files from R CMD build
-/*.tar.gz
-
-# Output files from R CMD check
-/*.Rcheck/
-
-# RStudio files
-.Rproj.user/
-
-# # produced vignettes
-# vignettes/*.html
-# vignettes/*.pdf
-
-
-# knitr and R markdown default cache directories
-*_cache/
-/cache/
-
-# Temporary files created by R markdown
-*.utf8.md
-*.knit.md
-
-# R Environment Variables
-.Renviron
-
-# pkgdown site
-docs/
-
+#################################################################################
+#                                                                               #
+#                                                                               #
+#                               R STUFF                                         #
+#                                                                               #
+# History files                                                                 #
+.Rhistory                                                                       #
+.Rapp.history                                                                   #
+#                                                                               #
+# Session Data files                                                            #
+.RData                                                                          #
+#                                                                               #
+# User-specific files                                                           #
+.Ruserdata                                                                      #
+#                                                                               #
+# Testing package/project                                                       #
+test.R                                                                          #
+#                                                                               #
+# R CMD build output file                                                       #
+/*.tar.gz                                                                       #
+#                                                                               #
+# R CMD check output file                                                       #
+/*.Rcheck/                                                                      #
+#                                                                               #
+# RStudio stuff                                                                 #
+.Rproj.user/                                                                    #
+#                                                                               #
+# Vignettes                                                                     #
+vignettes/*.html                                                                #
+vignettes/*.pdf                                                                 #
+#                                                                               #
+# Cache (literate programming)                                                  #
+*_cache/                                                                        #
+/cache/                                                                         #
+#                                                                               #
+# Temporary files created by R markdown                                         #
+# *.utf8.md                                                                     #
+# *.knit.md                                                                     #
+#                                                                               #
+# R Environment Variables                                                       #
+.Renviron                                                                       #
+#                                                                               #
+# pkgdown site                                                                  #
+docs/                                                                           #
+#                                                                               #
+## RMD files                                                                    #
+*.RDS                                                                           #
+#                                                                               #
+#                                                                               #
+#                                                                               #
+#################################################################################
 # translation temp files
 po/*~
 
 
-## RMD files
-*.RDS
