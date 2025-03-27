@@ -2,7 +2,7 @@
 
 # ##############################################################################
 # 
-# First steps, compilators etc
+# First steps, compilators etc  --> works fine
 # 
 sudo apt-get update  -qq   -y
 sudo apt-get upgrade -qq   -y
@@ -22,7 +22,7 @@ sudo apt-get upgrade -qq   -y
 
 # ##############################################################################
 #
-# MAIN DEPENDENCIES
+# MAIN DEPENDENCIES -->  works fine
 #
 sudo apt-get install zlib1g-dev           -y
 sudo apt-get install libcurl4-openssl-dev -y
@@ -38,8 +38,8 @@ sudo apt-get install libjpeg-dev          -y
 sudo apt-get install libblas-dev          -y
 sudo apt-get install liblapack-dev        -y
 sudo apt-get install libgsl0-dev          -y
-sudo apt-get update  -qq -y
-sudo apt-get upgrade -qq -y
+sudo apt-get update                   -qq -y
+sudo apt-get upgrade                  -qq -y
 sudo apt-get install libssl-dev           -y
 sudo apt-get install libfontconfig1-dev   -y
 sudo apt-get install libxml2-dev          -y
@@ -55,10 +55,10 @@ sudo apt-get install libavfilter-dev      -y
 sudo apt-get install libudunits2-dev      -y
 sudo apt-get install texlive-latex-base   -y
 sudo apt-get install texlive-fonts-extra  -y
-sudo apt-get update  -qq -y
-sudo apt-get upgrade -qq -y
-sudo apt-get clean       -y
-sudo apt-get autoremove  -y
+sudo apt-get update                   -qq -y
+sudo apt-get upgrade                  -qq -y
+sudo apt-get clean                        -y
+sudo apt-get autoremove                   -y
 #
 # ##############################################################################
 
@@ -66,23 +66,29 @@ sudo apt-get autoremove  -y
 
 # ##############################################################################
 # 
-# system utilities/software via apt-get
+# system utilities/software via apt-get mostly ok
 # 
-sudo apt-get install gparted               -y
-sudo apt-get install plocate               -y
-sudo apt-get install lm-sensor             -y
-sudo apt-get install htop                  -y
-sudo apt-get install mdbtools              -y
-sudo apt-get install pandoc                -y
-sudo apt-get install imagemagick           -y
-sudo apt-get install gh                    -y
-sudo apt-get remove --purge libreoffice*   -y
-sudo apt-get clean                         -y
-sudo apt-get autoremove                    -y
-sudo apt-get install libreoffice-draw      -y
-sudo apt-get install gnome-control-center  -y
-sudo apt-get install gnome-online-accounts -y
-sudo apt-get install smartmontools         -y
+sudo apt-get install gparted                        -y
+sudo apt-get install plocate                        -y
+sudo apt-get install lm-sensor                      -y
+sudo apt-get install htop                           -y
+sudo apt-get install mdbtools                       -y
+sudo apt-get install pandoc                         -y
+sudo apt-get install imagemagick                    -y
+sudo apt-get install gh                             -y
+sudo apt-get remove --purge libreoffice*            -y
+sudo apt-get clean                                  -y
+sudo apt-get autoremove                             -y
+sudo apt-get install libreoffice-draw               -y
+sudo apt-get install gnome-control-center           -y
+sudo apt-get install gnome-online-accounts          -y
+sudo apt-get install smartmontools                  -y
+sudo apt-get install virtualbox                     -y
+sudo apt-get install menu                           -y
+sudo apt-get install vde2                           -y
+sudo apt-get install virtualbox-guest-additions-iso -y
+sudo apt-get install digikam                        -y
+sudo apt-get install octave                         -y
 #
 # ##############################################################################
 
@@ -90,7 +96,7 @@ sudo apt-get install smartmontools         -y
 
 # ##############################################################################
 # 
-# Onlyoffice
+# Onlyoffice  --> me pide algun enter o aceptaicon de licencia, hay que meter mas -y
 # 
 # wget https://download.onlyoffice.com/install/desktop/editors/linux/onlyoffice-desktopeditors_amd64.deb
 # sudo apt install ./onlyoffice-desktopeditors_amd64.deb
@@ -101,8 +107,8 @@ chmod 644 /tmp/onlyoffice.gpg
 sudo chown root:root /tmp/onlyoffice.gpg
 sudo mv /tmp/onlyoffice.gpg /usr/share/keyrings/onlyoffice.gpg
 echo 'deb [signed-by=/usr/share/keyrings/onlyoffice.gpg] https://download.onlyoffice.com/repo/debian squeeze main' | sudo tee -a /etc/apt/sources.list.d/onlyoffice.list
-sudo apt-get update
-sudo apt-get install onlyoffice-desktopeditors
+sudo apt-get update                          -qq -y
+sudo apt-get install onlyoffice-desktopeditors   -y
 # 
 # ##############################################################################
 
@@ -138,7 +144,7 @@ sudo apt-get autoremove  -y
 
 # ############################################################################
 # 
-#  R installation
+#  R installation --> me pide algun press, hay que meter -y
 sudo apt install --no-install-recommends software-properties-common dirmngr -y
 # Signing key (by Michael Rutter)
 # To verify key, run gpg --show-keys /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc 
@@ -158,27 +164,23 @@ sudo apt-get install r-base-dev -y
 #
 # QGIS
 # 
-sudo apt-get install python-software-properties
-sudo add-apt-repository ppa:ubuntugis/ubuntugis-unstable
-sudo apt-get update -qq -y
-sudo apt-get install qgis qgis-plugin-grass
-#
-# Digikam
-# 
-sudo apt-get install digikam
+sudo apt-get install python-software-properties              -y
+sudo add-apt-repository ppa:ubuntugis/ubuntugis-unstable     -y
+sudo apt-get update                                      -qq -y
+sudo apt-get install qgis qgis-plugin-grass                  -y
 #
 # Zotero
 # 
 wget -qO- https://raw.githubusercontent.com/retorquere/zotero-deb/master/install.sh | sudo bash
-sudo apt-get update
-sudo apt-get install zotero
+sudo apt-get update    -qq  -y
+sudo apt-get install zotero -y
 #
 # zoom
 # 
-wget https://zoom.us/client/5.17.5.2543/zoom_amd64.deb
-sudo apt-get install ./zoom_amd64.deb
+wget https://zoom.us/client/5.17.5.2543/zoom_amd64.deb -y
+sudo apt-get install ./zoom_amd64.deb                  -y
 #
-# Teams
+# Teams --> no funciona
 # 
 wget -qO - https://packages.microsoft.com/keys/microsoft.asc| sudo apt-key add -
 echo "deb https://packages.microsoft.com/repos/ms-teams stable main" | sudo tee /etc/apt/sources.list.d/teams.list
@@ -222,22 +224,23 @@ sudo apt-get install libgdal-dev          -y
 # 
 # opera
 # 
-sudo sh -c 'echo "deb http://deb.opera.com/opera/ stable non-free" >> /etc/apt/sources.list.d/opera.list'
-sudo sh -c 'wget -O - http://deb.opera.com/archive.key | apt-key add -'
-sudo apt update -qq -y
-sudo apt install opera                    -y
+# sudo sh -c 'echo "deb http://deb.opera.com/opera/ stable non-free" >> /etc/apt/sources.list.d/opera.list'
+# sudo sh -c 'wget -O - http://deb.opera.com/archive.key | apt-key add -'
+# sudo apt update -qq -y
+# sudo apt install opera                    -y
+sudop apt install opera-stable       -y
 # 
 # google earth
 # 
 wget https://dl.google.com/dl/earth/client/current/google-earth-stable_current_amd64.deb
-sudo dpkg -i google-earth-stable*.deb     -y
+sudo dpkg -i google-earth-stable*.deb
 sudo apt-get -f install                   -y
 #
-# ##############################################################################
+# ###############################################################################
 
 
 
-# ##############################################################################
+# ###############################################################################
 # 
 # snaps
 # 
@@ -246,11 +249,30 @@ sudo snap install emacs --classic
 # chatgpt
 sudo snap install chatgpt-desktop
 #
-# ##############################################################################
+# ###############################################################################
+
+# ###############################################################################
+#
+# python3 libraries
+#
+sudo apt install python3-pip
+sudo apt install pipx
+pipx install scholarly # to make google scholar searches
+#
+# Seems not to work
+# 
+# ###############################################################################
+
+# ###############################################################################
+
+# change folder locations
+#
+xdg-user-dirs-update --set DOWNLOAD ~/Documents/Downloads
+#
+# ###############################################################################
 
 
-
-# ##############################################################################
+# ###############################################################################
 # 
 # No longer in use or needed
 # 
@@ -284,3 +306,5 @@ sudo snap install chatgpt-desktop
 # sudo apt-get install gnome-tweak-toolAngus henderson
 #
 # ##############################################################################
+
+
