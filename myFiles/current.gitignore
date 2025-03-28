@@ -71,23 +71,14 @@ vignettes/*.pdf                                                                 
 *_cache/                                                                        #
 /cache/                                                                         #
 #                                                                               #
-# Temporary files created by R markdown                                         #
-# *.utf8.md                                                                     #
-# *.knit.md                                                                     #
-#                                                                               #
-# R Environment Variables                                                       #
-.Renviron                                                                       #
-#                                                                               #
 # pkgdown site                                                                  #
 docs/                                                                           #
 #                                                                               #
-## RMD files                                                                    #
+## R Data files                                                                 #
 *.RDS                                                                           #
 #                                                                               #
 #                                                                               #
 #                                                                               #
 #################################################################################
-# translation temp files
-po/*~
 
 
