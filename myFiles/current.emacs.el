@@ -184,23 +184,15 @@
    ["#002b36" "#cb4b16" "#586e75" "#657b83" "#839496" "#6c71c4" "#93a1a1"
     "#fdf6e3"]))
 (custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
  )
 
 
 ;; global keybindings for using magit
 (global-set-key (kbd "C-x g") 'magit-status)
 
-;; test browser
+;;                           Generic settings
 ;; set specific browser to open links
-(setq browse-url-browser-function 'browse-url-firefox)
-
-;; test browser
-;; set specific browser to open links
-(setq browse-url-browser-function 'browse-url-firefox);; ;; general appearance and global options
+(setq browse-url-browser-function 'browse-url-firefox);; 
 ;;set the buffer name on top
 (setq frame-title-format "%b")
 ;; ;; removal of the startup buffer
@@ -223,62 +215,10 @@
   (other-window -1))
 
 
-;; test browser
-;; set specific browser to open links
-(setq browse-url-browser-function 'browse-url-firefox);; ;; general appearance and global options
-;;set the buffer name on top
-(setq frame-title-format "%b")
-;; ;; removal of the startup buffer
-(setq inhibit-startup-screen t)
-;; ;; removal of the bell sound when hitting the end of a script
-(setq visible-bell 1)
-;;:;; removal of main emacs menu
-(menu-bar-mode -1)
-;; ;; removal of custom, mode specific menu
-(tool-bar-mode -1)
-;; ;; displaying the column's numbers in the windows lower bar
-(setq column-number-mode t)
-;;no scrollling allowed
-(setq scroll-bar-mode -1)
-;; Keybindings to move between windows
-(global-set-key (kbd "C-.") 'other-window)
-(global-set-key (kbd "C-,") 'prev-window)
-(defun prev-window()
-  (interactive)
-  (other-window -1));; deprecated towards calling some specific folders
+;; deprecated towards calling some specific folders
 ;; (dired "~/")
 ;; open specific folders
-(global-set-key (kbd "C-c devils") (lambda() (interactive)(find-file "~/Dropbox/projects/DEVILS")))
-(global-set-key (kbd "C-c ele") (lambda() (interactive)(find-file "~/Dropbox/projects/ele")))
-(global-set-key (kbd "C-c slimming") (lambda() (interactive)(find-file "~/Dropbox/projects/slimmingDive")))
-
-
-;; test browser
-;; set specific browser to open links
-(setq browse-url-browser-function 'browse-url-firefox);; ;; general appearance and global options
-;;set the buffer name on top
-(setq frame-title-format "%b")
-;; ;; removal of the startup buffer
-(setq inhibit-startup-screen t)
-;; ;; removal of the bell sound when hitting the end of a script
-(setq visible-bell 1)
-;;:;; removal of main emacs menu
-(menu-bar-mode -1)
-;; ;; removal of custom, mode specific menu
-(tool-bar-mode -1)
-;; ;; displaying the column's numbers in the windows lower bar
-(setq column-number-mode t)
-;;no scrollling allowed
-(setq scroll-bar-mode -1)
-;; Keybindings to move between windows
-(global-set-key (kbd "C-.") 'other-window)
-(global-set-key (kbd "C-,") 'prev-window)
-(defun prev-window()
-  (interactive)
-  (other-window -1));; deprecated towards calling some specific folders
-;; (dired "~/")
-;; open specific folders
-(global-set-key (kbd "C-c devils") (lambda() (interactive)(find-file "~/Dropbox/projects/DEVILS")))
+(global-set-key (kbd "C-c remRats") (lambda() (interactive)(find-file "~/RESEARCH/MSU/projects/NACA/MODELLING/remRats/remRats")))
 (global-set-key (kbd "C-c ele") (lambda() (interactive)(find-file "~/Dropbox/projects/ele")))
 (global-set-key (kbd "C-c slimming") (lambda() (interactive)(find-file "~/Dropbox/projects/slimmingDive")))
 
@@ -335,69 +275,77 @@ There are two things you can do about this warning:
 ;; packages: magit fill-column-indicator
 ;;(require 'fill-column-indicator)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                                       ;;
+;;                                   TODO's                                              ;;
+;;                                                                                       ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; secuence of TODO objects and status                                                   ;;
+(setq org-todo-keywords                                                                  ;;
+      '((sequence "TODO"  "IN-PROGRESS" "PENDING"  "|"  "POSTPONED" "DONE" "CANCELED"    ;;
+		  "WAITING ANSWER" )                                                     ;;
+	(sequence "CONCEPTUALIZED" "DRAFTED" "INTERNAL-REVIEW" "SUBMITED"                ;;
+		  "MAJOR-CHANGES" "MINOR-CHANGES" "|" "ACEPTED" "IN-PRESS" "PUBLLISHED"  ;;
+		  "REJECTED")                                                            ;;
+	(sequence "MEETING" "|" "CANCELED" "DONE")))                                     ;;
+;;                                                                                       ;;
+;; the way they are coloured show the current status of the                              ;;
+;; progression with the fronground, while using the background color                     ;;
+;; to show that this particular task has reach an end point                              ;;
+;; backgrounds: RED -> failure at some point ORANGE -> stopped for now                   ;;
+;; to be re-evaluated BLUE -> Succesful end                                              ;;
+(setq org-todo-keyword-faces                                                             ;;
+      '(("TODO" . (:foreground "gold3" :weight bold))                                    ;;
+	("IN-PROGRESS" . (:foreground "OrangeRed2" :weight bold))                        ;;
+	("PENDING" . (:foreground "yellow" :weight bold))                                ;;
+	("CONCEPTUALIZED" . (:foreground "yellow" :weight bold))                         ;;
+	("DRAFTED" . (:foreground "OrangeRed2":background "white" :weight bold))         ;;
+	("INTERNAL-REVIEW" . (:foreground "magenta2" :background "aquamarine1"))         ;;
+	("SUBMITED" . (:foreground "magenta2" :background "aquamarine1"))                ;;
+	("MAJOR-CHANGES" . (:foreground "magenta2" :background "aquamarine1"))           ;;
+	("MINOR-CHANGES" . (:foreground "magenta2" :background "aquamarine1"))           ;;
+	("MEETING" . (:foreground "magenta2" :background "aquamarine1"))                 ;;
+	;; NOW IT IS TIME FOR THINGS DONE                                                ;;
+	("POSTPONED" . (:foreground "magenta2"))                                         ;;
+	("DONE" . (:foreground "blue" :background "white" :weight bold))                 ;;
+	("CANCELED" . (:foreground "white" :background "#4d4d4d"))                       ;;
+	("WAITING ANSWER" . (:foreground "DodgerBlue3" :background "white" :weight bold));;
+	("ACEPTED" . (:foreground "DodgerBlue3" :background "white" :weight bold))       ;;
+	("IN-PRESS" . (:foreground "DodgerBlue3" :background "white" :weight bold))      ;;
+	("PUBLISHED" . (:foreground "DodgerBlue3" :background "white" :weight bold))     ;;
+	("REJECTED" . (:foreground "black" :background "red3" :weight bold))             ;;
+	))                                                                               ;;
+;;                                                                                       ;;
+(setq org-higest-priority ?A)                                                            ;;
+(setq org-lowest-priority ?C)                                                            ;;
+(setq org-default-priority ?B)                                                           ;;
+(setq org-priority-faces '((?A . (:foreground "FireBrick" :weight bold))                 ;;
+			   (?B . (:foreground "lightSteelBlue" :weight bold))            ;;
+			   (?C . (:foreground "OliveDrab" :weight bold))))               ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-;; secuence of TODO objects and status
-(setq org-todo-keywords
-  '((sequence "TODO"  "IN-PROGRESS" "PENDING"  "|"  "POSTPONED" "DONE" "CANCELED" "WAITING ANSWER" )
-    (sequence "CONCEPTUALIZED" "DRAFTED" "INTERNAL-REVIEW" "SUBMITED" "MAJOR-CHANGES" "MINOR-CHANGES" "|" "ACEPTED" "IN-PRESS" "PUBLLISHED" "REJECTED")
-    (sequence "MEETING" "|" "CANCELED" "DONE")))
 
 
-
-;; the way they are coloured show the current status of the
-;; progression with the fronground, while using the background color
-;; to show that this particular task has reach an end point
-;; backgrounds: RED -> failure at some point ORANGE -> stopped for now
-;; to be re-evaluated BLUE -> Succesful end
-(setq org-todo-keyword-faces
-      '(("TODO" . (:foreground "gold3" :weight bold))
-	("IN-PROGRESS" . (:foreground "OrangeRed2" :weight bold))
-	("PENDING" . (:foreground "yellow" :weight bold))
-	("CONCEPTUALIZED" . (:foreground "yellow" :weight bold))
-	("DRAFTED" . (:foreground "OrangeRed2":background "white" :weight bold))
-	("INTERNAL-REVIEW" . (:foreground "magenta2" :background "aquamarine1"))
-	("SUBMITED" . (:foreground "magenta2" :background "aquamarine1"))
-	("MAJOR-CHANGES" . (:foreground "magenta2" :background "aquamarine1"))
-	("MINOR-CHANGES" . (:foreground "magenta2" :background "aquamarine1"))
-	("MEETING" . (:foreground "magenta2" :background "aquamarine1"))
-	;; NOW IT IS TIME FOR THINGS DONE
-	("POSTPONED" . (:foreground "magenta2"))
-	("DONE" . (:foreground "blue" :background "white" :weight bold))
-	("CANCELED" . (:foreground "white" :background "#4d4d4d"))
-	("WAITING ANSWER" . (:foreground "DodgerBlue3" :background "white" :weight bold))
-	("ACEPTED" . (:foreground "DodgerBlue3" :background "white" :weight bold))
-	("IN-PRESS" . (:foreground "DodgerBlue3" :background "white" :weight bold))
-	("PUBLISHED" . (:foreground "DodgerBlue3" :background "white" :weight bold))
-	("REJECTED" . (:foreground "black" :background "red3" :weight bold))
-	))
-
-
-
-;; more on org TODO list customization
-(setq org-higest-priority ?A)
-(setq org-lowest-priority ?C)
-(setq org-default-priority ?B)
-(setq org-priority-faces '((?A . (:foreground "FireBrick" :weight bold))
-			   (?B . (:foreground "lightSteelBlue" :weight bold))
-			   (?C . (:foreground "OliveDrab" :weight bold))))
-
-
-
-;; agenda
-
-;; agenda files
-(setq org-agenda-files '("~/agenda/personal.org"))
-
-
-;; weeks starts at day 1
-(setq calendar-week-start-day 1)
-
-;; (setq calendar-day-header-array ["Do" "Lu" "Ma" "Mi" "Ju" "Vi" "Sá"])
-;; (setq calendar-day-name-array ["domingo" "lunes" "martes" "miércoles" "jueves" "viernes" "sábado"])
-;; (setq calendar-month-abbrev-array ["Ene" "Feb" "Mar" "Abr" "May" "Jun" "Jul" "Ago" "Sep" "Oct" "Nov" "Dic"])
-;; (setq calendar-month-name-array ["enero" "febrero" "marzo" "abril" "mayo" "junio" "julio" "agosto" "septiembre" "octubre" "noviembre" "diciembre"])
-
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                                       ;;
+;;                                        AGENDA                                         ;;
+;;                                                                                       ;;
+;; agenda files                                                                          ;;
+(setq org-agenda-files '("~/agenda/personal.org"))                                       ;;
+;;                                                                                       ;;
+;; weeks starts at day 1                                                                 ;;
+(setq calendar-week-start-day 1)                                                         ;;
+;;                                                                                       ;;
+(setq calendar-day-header-array ["Su" "Mo" "Tu" "We" "Th" "Fr" "Sa"])                    ;;
+(setq calendar-day-name-array ["Sunday" "Monday" "Tuesday" "Wednesday" "Thursday"        ;;
+			       "Friday" "Saturday"])                                     ;;
+(setq calendar-month-abbrev-array ["Jan" "Feb" "Mar" "Apr" "May" "Jun" "Jul" "Aug" "Sep" ;;
+				   "Oct" "Nov" "Dic"])                                   ;;
+(setq calendar-month-name-array ["January" "February" "March" "April" "May" "June" "July";;
+				 "August" "September" "October" "November" "December"])  ;;
+;;                                                                                       ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
 (require 'use-package)
@@ -416,64 +364,69 @@ There are two things you can do about this warning:
 
 
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; org-mode agenda options                                                ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;open agenda in current window
-(setq org-agenda-window-setup (quote current-window))
-;;warn me of any deadlines in next 7 days
-(setq org-deadline-warning-days 7)
-;;show me tasks scheduled or due in next fortnight
-(setq org-agenda-span (quote fortnight))
-;;don't show tasks as scheduled if they are already shown as a deadline
-(setq org-agenda-skip-scheduled-if-deadline-is-shown t)
-;;sort tasks in order of when they are due and then by priority
-(setq org-agenda-sorting-strategy
-  (quote
-   ((agenda deadline-up priority-down)
-    (todo priority-down category-keep)
-    (tags priority-down category-keep)
-    (search category-keep))))
-;; set a time stamp when closing TODOs
-(setq org-log-done 'time)
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; A-x package-install multiple-cursors
-;; multiple cursors                                                       ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(global-set-key (kbd "C-c m c") 'mc/edit-lines)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                          org-mode agenda options                                      ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;open agenda in current window                                                          ;;
+(setq org-agenda-window-setup (quote current-window))                                    ;;
+;;warn me of any deadlines in next 7 days                                                ;;
+(setq org-deadline-warning-days 7)                                                       ;;
+;;show me tasks scheduled or due in next fortnight                                       ;;
+(setq org-agenda-span (quote fortnight))                                                 ;; 
+;;don't show tasks as scheduled if they are already shown as a deadline                  ;;
+(setq org-agenda-skip-scheduled-if-deadline-is-shown t)                                  ;;
+;;sort tasks in order of when they are due and then by priority                          ;;
+(setq org-agenda-sorting-strategy                                                        ;;
+  (quote                                                                                 ;;
+   ((agenda deadline-up priority-down)                                                   ;;
+    (todo priority-down category-keep)                                                   ;;
+    (tags priority-down category-keep)                                                   ;;
+    (search category-keep))))                                                            ;;
+;; set a time stamp when closing TODOs                                                   ;;
+(setq org-log-done 'time)                                                                ;;
+;; insert current time                                                                   ;;
+(global-set-key (kbd "C-c C-c") (lambda () (interactive) (org-insert-time-stamp (current-time))))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; A-x package-install multiple-cursors                                       ;;
+;; multiple cursors                                                           ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(global-set-key (kbd "C-c m c") 'mc/edit-lines)                               ;;
+;;                                                                            ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
 ;; mu4e
 
 (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu/mu4e")
 
-;; dired
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                               dired-x                                       ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                             ;;
+(put 'downcase-region 'disabled nil)                                           ;;
+;;                                                                             ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-;; dired-x
-(put 'downcase-region 'disabled nil)
-
-;; R stuff
-
-;; turn off flymake by default on R buffers
-(setq ess-use-flymake nil)
-
-;; quarto-mode
-;; load the library
-(require 'quarto-mode)
-
-;; Note that the following is not necessary to run quarto-mode in .qmd files! It's merely illustrating
-;; how to associate different extensions to the mode.
-(add-to-list 'auto-mode-alist '("\\.Rmd\\'" . poly-quarto-mode))
-
-;; Or, with use-package:
-(use-package quarto-mode
-  :mode (("\\.Rmd" . poly-quarto-mode))
-  )
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                R stuff                                     ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                            ;;
+;; turn off flymake by default                                                ;;
+(setq ess-use-flymake nil)                                                    ;;
+;;                                                                            ;;
+;; load the library                                                           ;;
+(require 'quarto-mode)                                                        ;;
+;;                                                                            ;;
+;; use of quarto mode in Rmd files                                            ;;
+(use-package quarto-mode                                                      ;;
+  :mode (("\\.Rmd" . poly-quarto-mode))                                       ;;
+  )                                                                           ;;
+;;                                                                            ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
 
 
-;; keybindings
-
-(global-set-key (kbd "C-c C-c") (lambda () (interactive) (org-insert-time-stamp (current-time))))
