@@ -189,18 +189,19 @@
 
 ;; global keybindings for using magit
 (global-set-key (kbd "C-x g") 'magit-status)
-
-;;                           Generic settings
-;; set specific browser to open links
-(setq browse-url-browser-function 'browse-url-firefox);; 
-;;set the buffer name on top
-(setq frame-title-format "%b")
-;; ;; removal of the startup buffer
-(setq inhibit-startup-screen t)
-;; ;; removal of the bell sound when hitting the end of a script
-(setq visible-bell 1)
-;;:;; removal of main emacs menu
-(menu-bar-mode -1)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                           Generic settings                                           ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; set specific browser to open links                                                   ;;
+(setq browse-url-browser-function 'browse-url-firefox)                                  ;;
+;;set the buffer name on top                                                            ;;
+(setq frame-title-format "%b")                                                          ;;
+;; ;; removal of the startup buffer                                                     ;;
+(setq inhibit-startup-screen t)                                                         ;;
+;; ;; removal of the bell sound when hitting the end of a script                        ;;
+(setq visible-bell 1)                                                                   ;;
+;;:;; removal of main emacs menu                                                        ;;
+(menu-bar-mode -1)                                                                      ;;
 ;; ;; removal of custom, mode specific menu
 (tool-bar-mode -1)
 ;; ;; displaying the column's numbers in the windows lower bar
@@ -218,9 +219,15 @@
 ;; deprecated towards calling some specific folders
 ;; (dired "~/")
 ;; open specific folders
-(global-set-key (kbd "C-c remRats") (lambda() (interactive)(find-file "~/RESEARCH/MSU/projects/NACA/MODELLING/remRats/remRats")))
-(global-set-key (kbd "C-c ele") (lambda() (interactive)(find-file "~/Dropbox/projects/ele")))
-(global-set-key (kbd "C-c slimming") (lambda() (interactive)(find-file "~/Dropbox/projects/slimmingDive")))
+(global-set-key (kbd "C-c remRats")
+		(lambda()(interactive)
+		  (find-file "~/RESEARCH/MSU/projects/NACA/MODELLING/remRats/remRats")))
+(global-set-key (kbd "C-c ele")
+		(lambda() (interactive)
+		  (find-file "~/Dropbox/projects/ele")))
+(global-set-key (kbd "C-c slimming")
+		(lambda() (interactive)
+		  (find-file "~/Dropbox/projects/slimmingDive")))
 
 
 ;; needs to be reinstalled
@@ -328,8 +335,8 @@ There are two things you can do about this warning:
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;                                                                                       ;;
 ;;                                        AGENDA                                         ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                                                                                       ;;
 ;; agenda files                                                                          ;;
 (setq org-agenda-files '("~/agenda/personal.org"))                                       ;;
@@ -385,15 +392,18 @@ There are two things you can do about this warning:
 ;; set a time stamp when closing TODOs                                                   ;;
 (setq org-log-done 'time)                                                                ;;
 ;; insert current time                                                                   ;;
-(global-set-key (kbd "C-c C-c") (lambda () (interactive) (org-insert-time-stamp (current-time))))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; A-x package-install multiple-cursors                                       ;;
-;; multiple cursors                                                           ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(global-set-key (kbd "C-c m c") 'mc/edit-lines)                               ;;
-;;                                                                            ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(global-set-key (kbd "C-c C-c"                                                           ;;
+		     (lambda () (interactive) (org-insert-time-stamp (current-time))))   ;;
+;;                                                                                       ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+		
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; A-x package-install multiple-cursors                                                  ;;
+;; multiple cursors                                                                      ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(global-set-key (kbd "C-c m c") 'mc/edit-lines)                                          ;;
+;;                                                                                       ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
 ;; mu4e
@@ -401,31 +411,31 @@ There are two things you can do about this warning:
 (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu/mu4e")
 
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;                               dired-x                                       ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;                                                                             ;;
-(put 'downcase-region 'disabled nil)                                           ;;
-;;                                                                             ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                               dired-x                                                 ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                                       ;;
+(put 'downcase-region 'disabled nil)                                                     ;;
+;;                                                                                       ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;                                R stuff                                     ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;                                                                            ;;
-;; turn off flymake by default                                                ;;
-(setq ess-use-flymake nil)                                                    ;;
-;;                                                                            ;;
-;; load the library                                                           ;;
-(require 'quarto-mode)                                                        ;;
-;;                                                                            ;;
-;; use of quarto mode in Rmd files                                            ;;
-(use-package quarto-mode                                                      ;;
-  :mode (("\\.Rmd" . poly-quarto-mode))                                       ;;
-  )                                                                           ;;
-;;                                                                            ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                R stuff                                                ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                                       ;;
+;; turn off flymake by default                                                           ;;
+(setq ess-use-flymake nil)                                                               ;;
+;;                                                                                       ;;
+;; load the library                                                                      ;;
+(require 'quarto-mode)                                                                   ;;
+;;                                                                                       ;;
+;; use of quarto mode in Rmd files                                                       ;;
+(use-package quarto-mode                                                                 ;;
+  :mode (("\\.Rmd" . poly-quarto-mode))                                                  ;;
+  )                                                                                      ;;
+;;                                                                                       ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
 
