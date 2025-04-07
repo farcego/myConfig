@@ -1,11 +1,11 @@
 #################################################################################
 #                                                                               #
-#                                                                               #
 #                                  EMACS STUFF                                  #
-*~                                                                              #
-*#                                                                              #
-.#*                                                                             #
-*.org                                                                           #
+*~                                                                              
+*#                                                                              
+.#*                                                                             
+*.org
+!TODO.org
 #                                                                               #
 #                                                                               #
 #################################################################################
@@ -22,67 +22,35 @@ TODO.org
 
 #################################################################################
 #                                                                               #
-#                                                                               #
 #                                DOCUMENTS/IMAGES                               # 
-#                                                                               #
-*.html                                                                          #
-*.tex                                                                           #
-*.pdf                                                                           #
-*.png                                                                           #
-*.jpg                                                                           #
-*.jpeg                                                                          #
-*.tiff                                                                          #
+*.html                                                                          
+*.tex                                                                           
+*.pdf                                                                           
+*.png                                                                           
+*.jpg                                                                           
+*.jpeg                                                                          
+*.tiff                                                                          
 #                                                                               #
 #                                                                               #
 #################################################################################
 
 
-
-# custom files
-
-closed.R
-
 #################################################################################
-#                                                                               #
 #                                                                               #
 #                               R STUFF                                         #
-#                                                                               #
-# History files                                                                 #
-.Rhistory                                                                       #
-.Rapp.history                                                                   #
-#                                                                               #
-# Session Data files                                                            #
-.RData                                                                          #
-#                                                                               #
-# User-specific files                                                           #
-.Ruserdata                                                                      #
-#                                                                               #
-# Testing package/project                                                       #
-test.R                                                                          #
-#                                                                               #
-# R CMD build output file                                                       #
-/*.tar.gz                                                                       #
-#                                                                               #
-# R CMD check output file                                                       #
-/*.Rcheck/                                                                      #
-#                                                                               #
-# RStudio stuff                                                                 #
-.Rproj.user/                                                                    #
-#                                                                               #
-# Vignettes                                                                     #
-vignettes/*.html                                                                #
-vignettes/*.pdf                                                                 #
-#                                                                               #
-# Cache (literate programming)                                                  #
-*_cache/                                                                        #
-/cache/                                                                         #
-#                                                                               #
-# pkgdown site                                                                  #
-docs/                                                                           #
-#                                                                               #
-## R Data files                                                                 #
-*.RDS                                                                           #
-#                                                                               #
+.Rhistory                                                                       
+.Rapp.history                                                                   
+.RData                                                                          
+.Ruserdata                                                                      
+/*.tar.gz                                                                       
+/*.Rcheck/                                                                      
+.Rproj.user/                                                                    
+vignettes/*.html                                                                
+vignettes/*.pdf                                                                 
+*_cache/                                                                        
+/cache/                                                                         
+docs/                                                                           
+*.RDS                                                                           
 #                                                                               #
 #                                                                               #
 #################################################################################
