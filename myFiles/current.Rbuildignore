@@ -1,0 +1,11 @@
+TODO.org
+^.git/
+test.R
+README.md
+closed.R
+^test/
+^progress/
+/man/figures/
+graphics.R
+^~
+^#
