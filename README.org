@@ -18,4 +18,3 @@ is Linux OS).
 - currentRbuildignore
 - current.Renviron
 - current.Rpackages.sh: Predefined packages to install after a clean OS installation.
-
