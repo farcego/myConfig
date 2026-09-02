@@ -1,0 +1,246 @@
+# Adaptar el laytout, cambiar Caps Lock, y hacer composite key right Ctrl
+
+
+
+# After installa
+
+sudo apt-get update -y
+sudo apt-get upgrade -y
+sudo apt-get autoremove -y
+sudo apt-get install gdebi -y
+sudo apt-get install curl -y
+sudo apt-get install make -y
+sudo apt-get install gcc -y
+sudo apt-get install g++ -y
+sudo apt-get install zlib1g-dev -y
+sudo apt-get update -y -y
+sudo apt-get install -y libcurl4-openssl-dev  -y
+sudo apt install libssl-dev -y
+sudo apt-get install -y libfontconfig1-dev  -y
+sudo apt install libxml2-dev -y
+sudo apt install libharfbuzz-dev libfribidi-dev -y
+sudo apt install libfreetype6-dev libpng-dev libtiff5-dev libjpeg-dev -y
+sudo apt-get install libblas-dev liblapack-dev -y
+sudo apt-get install libgsl0-dev -y
+sudo apt-get update -y
+sudo apt install libssl-dev -y
+sudo apt-get install -y libfontconfig1-dev  -y
+sudo apt install libxml2-dev -y
+sudo apt install libharfbuzz-dev libfribidi-dev -y
+sudo apt install libfreetype6-dev libpng-dev libtiff5-dev libjpeg-dev -y
+
+
+sudo apt-get install libgsl0-dev
+apt-get install cargoapt-get install cargo
+sudo apt install libmagick++-devlibmagick++-dev
+sudo apt install libavfilter-dev
+sudo apt install libudunits2-dev
+
+
+
+sudo apt install texlive-latex-base
+sudo apt install texlive-fonts-extra
+
+
+
+# system utilities/software
+
+sudo apt install gparted
+sudo apt install plocate
+sudo apt install lm-sensor
+sudo apt install htop
+sudo apt install mdbtools
+sudo apt install pandoc
+sudo apt install imagemagick
+# for interacting with git
+sudo apt install gh
+# Remove libreoffice but re-install Draw for pdf editing
+sudo apt-get remove --purge libreoffice*
+sudo apt-get clean
+sudo apt-get autoremove
+sudo apt install libreoffice-draw
+# change caps loc
+# sudo apt-get install gnome-tweak-tool
+# Google drive
+sudo apt-get install gnome-control-center
+sudo apt-get install gnome-online-accounts
+
+# install onlyoffice
+descargando el deb
+wget https://download.onlyoffice.com/install/desktop/editors/linux/onlyoffice-desktopeditors_amd64.deb
+
+
+
+# brave-beta
+sudo curl -fsSLo /usr/share/keyrings/brave-browser-beta-archive-keyring.gpg https://brave-browser-apt-beta.s3.brave.com/brave-browser-beta-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/brave-browser-beta-archive-keyring.gpg] https://brave-browser-apt-beta.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-beta.list
+sudo apt update
+sudo apt install brave-browser-beta
+# brave-nightly
+sudo curl -fsSLo /usr/share/keyrings/brave-browser-nightly-archive-keyring.gpg https://brave-browser-apt-nightly.s3.brave.com/brave-browser-nightly-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/brave-browser-nightly-archive-keyring.gpg] https://brave-browser-apt-nightly.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-nightly.list
+sudo apt update
+sudo apt install brave-browser-nightly
+
+# ahora opera, solo via web el deb
+
+
+# R
+
+# update indices
+sudo apt update -qq
+
+
+# install two helper packages we need (not sure for what)
+sudo apt install --no-install-recommends software-properties-common dirmngr
+
+#  R installation
+# Signing key (by Michael Rutter)
+# To verify key, run gpg --show-keys /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc 
+# Fingerprint: E298A3A825C0D65DFD57CBB651716619E084DAB9
+wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | sudo tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc
+# add the R 4.0 repo from CRAN -- adjust 'focal' to 'groovy' or 'bionic' as needed
+sudo add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu noble-cran40/"
+
+
+sudo apt-get update
+sudo apt-get install r-base
+sudo apt-get install r-base-dev
+
+
+# QGIS, some issues with python-qgis
+sudo apt-get install python-software-properties
+sudo add-apt-repository ppa:ubuntugis/ubuntugis-unstable
+sudo apt-get update
+sudo apt-get install qgis qgis-plugin-grass
+
+
+# sudo add-apt-repository ppa:ubuntuhandbook1/gimp
+# sudo apt update
+# sudo apt install gimp
+
+
+sudo apt-get install digikam
+
+# vamos ocn zotero:
+
+
+wget -qO- https://raw.githubusercontent.com/retorquere/zotero-deb/master/install.sh | sudo bash
+sudo apt update
+sudo apt install zotero
+
+
+
+
+# git kraken
+wget https://release.gitkraken.com/linux/gitkraken-amd64.deb
+
+
+
+## zoom
+wget https://zoom.us/client/5.17.5.2543/zoom_amd64.deb
+sudo apt install ./zoom_amd64.deb
+
+
+
+
+# teams va desde el cenntro de sosftwqare
+
+# para el google drive, si no nos aparecen las online accounts
+sudo apt install --no-install-recommends gnome-control-center gnome-online-accounts
+
+# con esto se nos abre
+XDG_CURRENT_DESKTOP=GNOME gnome-control-center
+
+# pegar como hacer el onedrive...
+
+# ?
+onedrive
+
+onedrive --synchronize
+
+
+systemctl --user enable onedrive
+systemctl --user start onedrive
+
+
+
+
+# smart tools
+sudo apt install smartmontools
+
+## sudo snap install raindrop
+
+
+# gdal
+sudo add-apt-repository ppa:ubuntugis/ppa && sudo apt-get update
+sudo apt-get update
+sudo apt-get install gdal-bin
+sudo apt-get install libgdal-dev
+
+
+
+
+
+
+
+
+
+# opera
+
+sudo sh -c 'echo "deb http://deb.opera.com/opera/ stable non-free" >> /etc/apt/sources.list.d/opera.list'
+sudo sh -c 'wget -O - http://deb.opera.com/archive.key | apt-key add -'
+sudo apt update
+sudo apt install opera
+
+# google earth
+wget https://dl.google.com/dl/earth/client/current/google-earth-stable_current_amd64.deb
+sudo dpkg -i google-earth-stable*.deb
+sudo apt-get -f install
+
+
+
+
+# ##############################################################################
+# 
+# snaps
+# 
+# emacs
+sudo snap install emacs --classic
+# chatgpt
+sudo snap install chatgpt-desktop
+#
+# ##############################################################################
+
+
+
+# ##############################################################################
+# 
+# No longer in use or needed
+# 
+# # audacius download
+# wget https://distfiles.audacious-media-player.org/audacious-4.4.1.tar.bz2
+# # jopplin
+# wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash
+# # gnome-boxes
+# sudo apt install gnome-boxes
+# 
+# ##############################################################################
+
+
+
+# ##############################################################################
+# 
+# broken
+# 
+# # darktable
+# ### Not installable
+# echo 'deb http://download.opensuse.org/repositories/graphics:/darktable:/master/xUbuntu_22.04/ /' | sudo tee /etc/apt/sources.list.d/graphics:darktable:master.list
+# curl -fsSL https://download.opensuse.org/repositories/graphics:darktable:master/xUbuntu_22.04/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/graphics_darktable_master.gpg > /dev/null
+# sudo apt update
+# sudo apt install darktable
+# # cambia las carpetas de destino
+# # no funcionba, asi que lo comento
+# sudo apt-get install dconf-editor
+#
+# ##############################################################################

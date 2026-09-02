@@ -1,0 +1,65 @@
+# basicos para empezar a funcionar
+sudo pacman -S base-devel git zotero
+sudo pacman -S emacs pandoc texlive-meta
+# emacs modes va en interactivo de momento
+# ESS Magit pandoc, modern-cv
+sudo pacman -S yay
+sudo pacman -S visidata
+sudo pacman -S okular
+
+# estas dos lineas instalan R
+sudo pacman -Syu r
+sudo pacman -S --needed base-devel gcc-fortran cmake pkgconf
+
+sudo pacman -S \
+          arrow qgis \
+          gdal geos proj sqlite \
+          curl openssl libxml2 \
+          hdf5 netcdf \
+	  pdal python-gdal \
+          imagemagick
+
+
+
+yay -S raindrop
+
+yay -S udunits
+yay -S jags
+yay -Ss grass
+
+# not needed
+#  yay -Ss saga
+
+
+## setxkbmap -option ctrl:swapcaps
+## no funciona en wayland, hecho en la gui de settings
+
+emacs --batch \
+  --eval "(require 'package)" \
+  --eval "(package-refresh-contents)" \
+  --eval "(package-install-selected-packages)"
+
+
+
+# printer set up			
+sudo pacman -S cups system-config-printer avahi nss-mdns
+sudo systemctl enable --now cups.service
+sudo systemctl enable --now avahi-daemon.service
+
+sudo usermod -aG lp $USER
+
+
+
+
+# emavs packages:
+ess
+quarto-mode
+csv-mode
+magit
+poly-R
+multiple-cursors
+yaml-mode
+
+# # now installed with quarto-mode
+# polymode
+# markdown-mode
