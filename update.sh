@@ -11,7 +11,6 @@ echo "==== $(date) ====" >> "$log"
 rsync -avzh \
       --exclude="snap/" \
       --exclude="cpdb" \
-      --exclude="LEARNING" \
-      --exclude="HOME-INST/" \
+      --exclude="trizen" \
       --exclude=".*" \
       "$src" "$dest" >> "$log" 2>&1
