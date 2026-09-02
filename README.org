@@ -7,15 +7,15 @@ is Linux OS).
 
 * Folders
 ** distros
-- **process-cachyOS.org**
-- **process-ubuntu.org**
+- process-cachyOS.org
+- process-ubuntu.org
 ** emacs
-- **current.emacs.el** Personal configuration of emacs
+- current.emacs.el: Personal configuration of emacs
 ** git
-- **current-gitconfig**
-- **current.gitignore** A generic .gitignore file to ignore most of non needed/shareable files that may occur in my projects.
+- current-gitconfig
+- current.gitignore: A generic .gitignore file to ignore most of non needed/shareable files that may occur in my projects.
 ** R
-- **currentRbuildignore**
-- **current.Renviron**
-- **current.Rpackages.sh** Predefined packages to install after a clean OS installation.
+- currentRbuildignore
+- current.Renviron
+- current.Rpackages.sh: Predefined packages to install after a clean OS installation.
 
