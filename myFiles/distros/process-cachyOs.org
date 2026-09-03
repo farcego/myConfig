@@ -51,7 +51,7 @@ sudo usermod -aG lp $USER
 
 
 
-# emavs packages:
+# emacs packages:
 ess
 quarto-mode
 csv-mode
