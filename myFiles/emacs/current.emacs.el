@@ -51,21 +51,27 @@
 (setq column-number-mode t)                                                             ;;
 ;;no scrollling bar                                                                     ;;
 (setq scroll-bar-mode -1)                                                               ;;
-;; Keybindings to move between windows
-(global-set-key (kbd "C-.") 'other-window)
-(global-set-key (kbd "C-,") 'prev-window)
-(defun prev-window()
-  (interactive)
-  (other-window -1))
+;; Keybindings to move between windows                                                  ;;
+(global-set-key (kbd "C-.") 'other-window)                                              ;;
+(global-set-key (kbd "C-,") 'prev-window)                                               ;;
+(defun prev-window()                                                                    ;;
+  (interactive)                                                                         ;;
+  (other-window -1))                                                                    ;;
+;; use ibbufer rather than list-buffers                                                 ;;
+(global-set-key (kbd "C-x C-b") #'ibuffer)                                              ;;
+;;                                                                                      ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
-;; opens agenda and dired mode at $HOME at startup
-(add-hook 'emacs-startup-hook
-          (lambda ()
-            (org-agenda-list)
-            (split-window-right)
-            (other-window 1)
-            (dired "~/")))
+;; se ha desconfigurado
+;; ;; opens agenda and dired mode at $HOME at startup
+;; (add-hook 'emacs-startup-hook
+;;           (lambda ()
+;; 	    (when (= (length command-line-args-left) 0)
+;;             (org-agenda-list)
+;;             (split-window-right)
+;;             (other-window 1)
+;;             (dired "~/"))))
 
 
 (custom-set-variables
