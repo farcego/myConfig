@@ -1,0 +1,16 @@
+* List of scliced files
+
+** 00-install.sh
+Runs sequentially the following scripts
+** 01-base.sh
+Install basic software for development, compilers, git, curl, make etc...
+** 02-libs.sh
+Dependencies for package development and  installation
+** 03-latex.sh
+Install latex (pandoc is included here because it is to change formats)
+** 04-desktop.sh
+Installation of daily used applications. Libre-office Draw is no loner needed
+** 05-r.sh
+Clean installation of R. It is most likely broken at the current time
+** 06-gis.sh
+Installation of QGIS and GDAL
