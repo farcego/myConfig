@@ -1,0 +1,4 @@
+* Ubuntu
+I am currently breaking the initial config file intos maller, more usable piezes, and I have to test some of Dirk E. tricks for improving R package dependencies management.
+* CachyOS
+There is no much word happening as of late. probably onlyu let to include some softweare as needed, like docker.
