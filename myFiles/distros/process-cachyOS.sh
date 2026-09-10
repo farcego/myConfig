@@ -38,6 +38,7 @@ sudo pacman -S --needed --noconfirm \
     pandoc \
     texlive-meta \
     visidata \
+    docker \
     okular
 
 
