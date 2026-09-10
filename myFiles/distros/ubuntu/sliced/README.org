@@ -9,8 +9,18 @@ Dependencies for package development and  installation
 ** 03-latex.sh
 Install latex (pandoc is included here because it is to change formats)
 ** 04-desktop.sh
-Installation of daily used applications. Libre-office Draw is no loner needed
+Installation of daily used applications. Libre-office Draw is no loner needed, and won't be reinstalled
 ** 05-r.sh
 Clean installation of R. It is most likely broken at the current time
 ** 06-gis.sh
 Installation of QGIS and GDAL
+** 08-zotero.sh
+Clean installation of Zotero
+** 09-browsewrs.sh
+Development verios of brave. Probably will be changed anytime soon.
+** 09-external.sh
+Stuff to ve moved elsewhere (in process)
+** 10-onedrive.sh
+Only in working environments. Install aMS onedrive client. Needs the initialization and sep up as daemon to be added
+** 11-cleanup.sh
+Cleans the installatiion and remember some stuff still needed to be done
