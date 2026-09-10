@@ -19,8 +19,8 @@ echo "==> Removing LibreOffice..."
 sudo apt purge -y 'libreoffice*'
 sudo apt autoremove -y
 
-echo "==> Installing LibreOffice Draw..."
-sudo apt install -y libreoffice-draw
+# echo "==> Installing LibreOffice Draw..."
+# sudo apt install -y libreoffice-draw
 
 # Keyboard:
 # Configure interactively in Settings:
