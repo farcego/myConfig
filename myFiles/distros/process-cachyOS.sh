@@ -100,7 +100,8 @@ echo "==> Instalando paquetes del AUR..."
 yay -S --needed --noconfirm \
     raindrop \
     udunits \
-    jags
+    jags \
+    zoom
 
 
 # ------------------------------------------------------------
