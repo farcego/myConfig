@@ -39,7 +39,12 @@ sudo pacman -S --needed --noconfirm \
     texlive-meta \
     visidata \
     docker \
-    okular
+    okular \
+    htop \
+    xorg-xkill \
+    foliate \
+    kodi \
+    qbittorrent
 
 
 # ------------------------------------------------------------
@@ -184,3 +189,6 @@ echo "============================================================"
 echo " Instalación terminada"
 echo "============================================================"
 
+
+# para las virtual machines
+sudo systemctl enable --now libvirtd
