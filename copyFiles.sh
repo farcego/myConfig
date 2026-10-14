@@ -13,8 +13,8 @@ fi
 
 # Your file copying commands go here
 # cp /source/path/* /destination/path/
-cp ~/HOME-INST/inst.sh ~/RESEARCH/FER/myConfig/myFiles/inst.sh
-cp ~/Renviron ~/RESEARCH/FER/myConfig/myFiles/Renviron
+# cp ~/HOME-INST/inst.sh ~/HOME-INST/myConfig/myFiles/inst.sh # 
+cp ~/.Renviron ~/HOME-INST/myConfig/myFiles/current.Renviron
 cp ~/.emacs.el ~/HOME-INST/myConfig/myFiles/emacs/current.emacs.el
 # Update the last run time
 date +%s > "$LAST_RUN_FILE"
