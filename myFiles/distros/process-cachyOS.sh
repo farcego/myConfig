@@ -136,7 +136,7 @@ echo "==> Instalando paquetes seleccionados de Emacs..."
 #   ESS
 #   Magit
 #   pandoc-mode
-#   modern-cv
+#   csv-mode
 
 emacs --batch \
     --eval "(require 'package)" \
