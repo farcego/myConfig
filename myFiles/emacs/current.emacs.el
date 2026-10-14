@@ -2,19 +2,14 @@
 
 
 
-
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                          Packaging settings                                          ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-                                                                                        ;;
                                                                                         ;;
 (require 'package)                                                                      ;;
 (add-to-list 'package-archives                                                          ;;
              '("melpa" . "https://melpa.org/packages/")                                 ;;
 	     t)                                                                         ;;
-                                                                                        ;;
-                                                                                        ;;
                                                                                         ;;
 (setq package-selected-packages                                                         ;;
       '(ess                                                                             ;;
@@ -24,7 +19,6 @@
         poly-R                                                                          ;;
         multiple-cursors                                                                ;;
         yaml-mode))                                                                     ;;
-                                                                                        ;;
                                                                                         ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -63,6 +57,13 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
+
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                          general appearance                                          ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; se ha desconfigurado
 ;; ;; opens agenda and dired mode at $HOME at startup
 ;; (add-hook 'emacs-startup-hook
@@ -181,12 +182,13 @@
      (tramp-connection-local-default-shell-profile
       (shell-file-name . "/bin/sh") (shell-command-switch . "-c"))
      (tramp-connection-local-default-system-profile
-      (path-separator . ":") (null-device . "/dev/null"))))
+      (path-separator . ":") (null-device . "/dev/null")
+      (exec-suffixes ""))))
  '(cua-global-mark-cursor-color "#2aa198")
  '(cua-normal-cursor-color "#839496")
  '(cua-overwrite-cursor-color "#b58900")
  '(cua-read-only-cursor-color "#859900")
- '(custom-enabled-themes '(manoj-dark))
+ '(custom-enabled-themes '(misterioso light-blue))
  '(custom-safe-themes
    '("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4"
      "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879"
@@ -216,7 +218,7 @@
  '(nrepl-message-colors
    '("#dc322f" "#cb4b16" "#b58900" "#546E00" "#B4C342" "#00629D"
      "#2aa198" "#d33682" "#6c71c4"))
- '(org-agenda-files nil)
+ '(org-agenda-files nil t)
  '(package-selected-packages
    '(## dash debbugs emms ess ess-R-data-view fcitx fill-column-indicator
 	magit magithub markdown-mode mu4e-alert multiple-cursors
@@ -251,7 +253,17 @@
    ["#002b36" "#cb4b16" "#586e75" "#657b83" "#839496" "#6c71c4" "#93a1a1"
     "#fdf6e3"]))
 (custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  )
+
+
+
+
+
+
 
 
 ;; global keybindings for using magit
@@ -260,32 +272,62 @@
 
 
 
+
+
+
+
 ;; deprecated towards calling some specific folders
 ;; (dired "~/")
 ;; open specific folders
-(global-set-key (kbd "C-c remRats")
-		(lambda()(interactive)
-		  (find-file "~/RESEARCH/MSU/projects/NACA/MODELLING/remRats/remRats")))
 (global-set-key (kbd "C-c ele")
 		(lambda() (interactive)
 		  (find-file "~/Dropbox/projects/ele")))
-(global-set-key (kbd "C-c slimming")
+(global-set-key (kbd "C-c sld")
 		(lambda() (interactive)
 		  (find-file "~/Dropbox/projects/slimmingDive")))
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                                       ;;
+;;                           org agenda files                                            ;;
+;;                                                                                       ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(setq org-agenda-files                                                                   ;;
+      '("~/org/inbox.org"
+	"~/org/movement.org"                                                             ;;
+        "~/org/personal.org"                                                             ;;
+        "~/org/personal.org"                                                             ;;
+	"~/org/sampling.org"))                                                           ;;
+;;                                                                                       ;;
+;;                                                                                       ;;
+;; weeks starts at day 1                                                                 ;;
+(setq calendar-week-start-day 1)                                                         ;;
+;;                                                                                       ;;
+(setq calendar-day-header-array ["Su" "Mo" "Tu" "We" "Th" "Fr" "Sa"])                    ;;
+(setq calendar-day-name-array ["Sunday" "Monday" "Tuesday" "Wednesday" "Thursday"        ;;
+			       "Friday" "Saturday"])                                     ;;
+(setq calendar-month-abbrev-array ["Jan" "Feb" "Mar" "Apr" "May" "Jun" "Jul" "Aug" "Sep" ;;
+				   "Oct" "Nov" "Dic"])                                   ;;
+(setq calendar-month-name-array ["January" "February" "March" "April" "May" "June" "July";;
+				 "August" "September" "October" "November" "December"])  ;;
+;;                                                                                       ;;
+(setq org-agenda-include-diary nil)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; needs to be reinstalled
-;; emms, play music within emacs
-;; (require 'emms-setup)
-;; (emms-all)
-;; (emms-default-players)
-;; ;; starting directory
-;; (setq emms-source-file-default-directory "~Multimedia/")
-;; Code below does not workt does not work
-;; ;; only name of the track displayed
-;; (defvar emms-browser-info-title-format "%a%t")
-;; (defvar emms-browser-playlist-info-title-format
-;;   emms-browser-info-title-format)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                                       ;;
+;;                                  ORG TAGS                                             ;;
+;;                                                                                       ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                                                                                       ;;
+(setq org-tag-alist                                                                      ;;
+      '(("analysis" . ?a)                                                                ;;
+        ("writing"  . ?w)                                                                ;;
+        ("meeting"  . ?m)                                                                ;;
+        ("field"    . ?f)                                                                ;;
+        ("computer" . ?c)))                                                              ;;
+;;                                                                                       ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -338,46 +380,10 @@
 
 
 
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;                                        AGENDA                                         ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                                                                                       ;;
-;; agenda files                                                                          ;;
-(setq org-agenda-files '("~/agenda/personal.org"))                                       ;;
-;;                                                                                       ;;
-;; weeks starts at day 1                                                                 ;;
-(setq calendar-week-start-day 1)                                                         ;;
-;;                                                                                       ;;
-(setq calendar-day-header-array ["Su" "Mo" "Tu" "We" "Th" "Fr" "Sa"])                    ;;
-(setq calendar-day-name-array ["Sunday" "Monday" "Tuesday" "Wednesday" "Thursday"        ;;
-			       "Friday" "Saturday"])                                     ;;
-(setq calendar-month-abbrev-array ["Jan" "Feb" "Mar" "Apr" "May" "Jun" "Jul" "Aug" "Sep" ;;
-				   "Oct" "Nov" "Dic"])                                   ;;
-(setq calendar-month-name-array ["January" "February" "March" "April" "May" "June" "July";;
-				 "August" "September" "October" "November" "December"])  ;;
-;;                                                                                       ;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-
-(require 'use-package)
-
-;; ;; PDF tools
-
-;; (use-package pdf-tools
-;;  :pin manual ;; manually updatepackage-install
-;;  :config
-;;  ;; initialise
-;;  (pdf-tools-install)
-;;  ;; open pdfs scaled to fit page
-;; ;; (setq-default pdf-view-display-size 'fit-page)
-;;  ;; automatically annotate highlights
-;;  (setq pdf-annot-activate-created-annotations t))
-
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                          org-mode agenda options                                      ;;
+;;                                                                                       ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;open agenda in current window                                                          ;;
 (setq org-agenda-window-setup (quote current-window))                                    ;;
@@ -411,6 +417,23 @@
 (global-set-key (kbd "C-c m c") 'mc/edit-lines)                                          ;;
 ;;                                                                                       ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+;; capturar tareas sobre la marcha. C-c c
+(setq org-default-notes-file "~/org/inbox.org")
+(global-set-key (kbd "C-c a") #'org-agenda)
+(global-set-key (kbd "C-c c") #'org-capture)
+
+(setq org-capture-templates
+      '(("t" "Task" entry
+         (file "~/org/inbox.org")
+         "* TODO %?\n  %U")
+        ("n" "Note" entry
+         (file "~/org/inbox.org")
+         "* %?\n  %U")))
+
+
+
 
 
 ;; mu4e
